@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "loopcoder"
+version = "0.1.0"
+description = "A local Python coding assistant with a Textual terminal interface."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "textual",
+    "rich",
+    "prompt_toolkit",
+    "openai",
+    "anthropic",
+    "anyio",
+    "mcp>=1.28.1,<2",
+    "python-dotenv",
+    "PyYAML",
+    "tomlkit",
+    "portalocker",
+]
+
+[project.scripts]
+loopcoder = "loopcoder.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["loopcoder*"]
+
+[tool.setuptools.package-data]
+loopcoder = ["context/prompts/*.txt", "app/*.tcss"]
